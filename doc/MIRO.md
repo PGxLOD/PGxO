@@ -9,14 +9,14 @@ For each guideline, we describe the value of the field to report.
 | A.2 Ontology owner | Adrien Coulet (https://members.loria.fr/ACoulet/) |
 | A.3 Ontology license | [Creative Commons BY NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
 | A.4 Ontology URL | http://ns.inria.fr/pgxo/pgxo.owl |
-| A.5 Ontology repository | https://github.com/practikpharma/PGxO |
+| A.5 Ontology repository | https://github.com/PGxLOD/PGxO |
 | A.6 Methodological framework | Competency questions described in [1] and [2] |
 | B.1 Need | Reconciliation of pharmacogenomic knowledge units of various provenances, enabling further comparison |
 | B.2 Competition | SO-Pharm, PHARE, Genomic CDS, PO. Comparison in [2] |
 | B.3 Target audience | Bioinformaticians, knowledge engineers, clinical decision support systems. ANR _PractiKPharma_ project  (http://practikpharma.loria.fr) |
 | C.1 Scope and coverage | Representing, reconciling and tracing pharmacogenomic knowledge units.|
 | C.2 Development community | Adrien Coulet, Clément Jonquet, Pierre Monnin |
-| C.3 Communication | https://github.com/practikpharma/PGxO/issues |
+| C.3 Communication | https://github.com/PGxLOD/PGxO/issues |
 | D.1 Knowledge acquisition methodology | Described in [1] and [2] |
 | D.2 Source knowledge location | Described in [1] and [2] |
 | D.3 Content selection | Described in [1] and [2] |
@@ -31,12 +31,12 @@ For each guideline, we describe the value of the field to report.
 | E.9 Ontology relationships | We use some relationships from OBO Relations Ontology and PROV-O. We defined 41 new relationships. |
 | E.10 Axiom patterns | None |
 | E.11 Dereferenceable IRIs | IRIs are dereferenceable to http://ns.inria.fr/pgxo/. Preferred prefix is ``pgxo``. |
-| F.1 Sustainability plan | The ontology is maintained by the _PractiKPharma_ project (http://practikpharma.loria.fr/). No specific plan beyond the project span. Ontology is released on the NCBO BioPortal. |
+| F.1 Sustainability plan | The ontology was originally supported by the _PractiKPharma_ project (http://practikpharma.loria.fr/), and is now maintained by permanent members of the Inria WIMMICS (https://team.inria.fr/wimmics/) and HeKA (https://team.inria.fr/heka/) teams. Ontology is released at http://ns.inria.fr/pgxo/ and on the NCBO BioPortal. |
 | F.2 Entity deprecation strategy | None |
 | F.3 Versioning policy | None |
 | G.1 Testing | Described in [1] and [2] |
 | G.2 Evaluation | Described in [1] and [2]  |
-| G.3 Example of use | Described in [1] and [2]. Instantiation example available in  https://raw.githubusercontent.com/practikpharma/PGxO/master/doc/pgxo_with_instances.owl |
+| G.3 Example of use | Described in [1] and [2]. Instantiation example available in  https://raw.githubusercontent.com/PGxLOD/PGxO/master/doc/pgxo_with_instances.owl |
 | G.4 Institutional endorsement | None |
 | G.5 Evidence of use | Used within the _PractiKPharma_ project (http://practikpharma.loria.fr/) |
 
