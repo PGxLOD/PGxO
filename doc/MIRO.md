@@ -5,7 +5,7 @@ For each guideline, we describe the value of the field to report.
 
 | Guideline (field to report) | Description |
 |-----------------------------|-------------|
-| A.1 Ontology name | PGxO, v0.6.1 |
+| A.1 Ontology name | PGxO, v0.6.2 |
 | A.2 Ontology owner | Adrien Coulet (https://members.loria.fr/ACoulet/) |
 | A.3 Ontology license | [Creative Commons BY NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
 | A.4 Ontology URL | http://ns.inria.fr/pgxo/pgxo.owl |
