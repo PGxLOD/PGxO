@@ -5,7 +5,7 @@ For each guideline, we describe the value of the field to report.
 
 | Guideline (field to report) | Description |
 |-----------------------------|-------------|
-| A.1 Ontology name | PGxO, v0.6 |
+| A.1 Ontology name | PGxO, v0.6.1 |
 | A.2 Ontology owner | Adrien Coulet (https://members.loria.fr/ACoulet/) |
 | A.3 Ontology license | [Creative Commons BY NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
 | A.4 Ontology URL | http://ns.inria.fr/pgxo/pgxo.owl |
@@ -22,7 +22,7 @@ For each guideline, we describe the value of the field to report.
 | D.3 Content selection | Described in [1] and [2] |
 | E.1 Knowledge Representation language | OWL 2 (RDF-XML syntax), Description Logics ALHIF(D)
 | E.2 Development environment | Protégé (https://protege.stanford.edu) |
-| E.3 Ontology metrics | 12 classes, 44 properties (43 object, 1 data), 139 axioms, 18KB |
+| E.3 Ontology metrics | 12 classes, 47 properties (43 object, 4 data), 189 axioms, 22KB |
 | E.4 Incorporation of other ontologies | No ontologies are imported. OBO Relations Ontology and PROV-O are used. Mappings to NCIt, MeSH, SNOMED-CT, SO-Pharm, PO, PHARE and Genomic CDS |
 | E.5 Entity naming convention | Base URI: http://ns.inria.fr/pgxo/ + CamelCase (classes) or camelCase (properties, individuals) |
 | E.6 Identifier generation policy | Append English rdfs:label to base URI |

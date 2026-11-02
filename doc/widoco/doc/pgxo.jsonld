@@ -13,7 +13,7 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/\n- Remove usage of DUL\n- Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx"
+    "@value" : "Add data properties to connect pharmacogenomic relationships to their p-value, odds ratio, and hazard ratio"
   }, {
     "@language" : "en",
     "@value" : "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."
@@ -23,7 +23,7 @@
     "@value" : "PGxO: a lite Pharmacogenomic Ontology"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "0.6"
+    "@value" : "0.6.1"
   } ]
 }, {
   "@id" : "http://ns.inria.fr/pgxo/Disease",
@@ -148,6 +148,36 @@
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "level of evidence in ClinPGx"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/hazardRatio",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/PharmacogenomicRelationship"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "hazard ratio"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/oddsRatio",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/PharmacogenomicRelationship"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "odds ratio"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/pValue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/PharmacogenomicRelationship"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "p-value"
   } ]
 }, {
   "@id" : "http://ns.inria.fr/pgxo/decreases",

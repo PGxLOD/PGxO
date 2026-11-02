@@ -3,10 +3,10 @@
 <http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/creator> "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)" .
 <http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/creator> "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)" .
 <http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by-nc/4.0/" .
-<http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/\n- Remove usage of DUL\n- Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx"@en .
+<http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "Add data properties to connect pharmacogenomic relationships to their p-value, odds ratio, and hazard ratio"@en .
 <http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."@en .
 <http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#label> "PGxO: a lite Pharmacogenomic Ontology"@en .
-<http://ns.inria.fr/pgxo/> <http://www.w3.org/2002/07/owl#versionInfo> "0.6" .
+<http://ns.inria.fr/pgxo/> <http://www.w3.org/2002/07/owl#versionInfo> "0.6.1" .
 # 
 # 
 # #################################################################
@@ -274,6 +274,27 @@
 <http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/pgxo/PharmacogenomicRelationship> .
 <http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/2000/01/rdf-schema#label> "level of evidence in ClinPGx"@en .
+# 
+# 
+# 
+# http://ns.inria.fr/pgxo/hazardRatio
+<http://ns.inria.fr/pgxo/hazardRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ns.inria.fr/pgxo/hazardRatio> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/pgxo/PharmacogenomicRelationship> .
+<http://ns.inria.fr/pgxo/hazardRatio> <http://www.w3.org/2000/01/rdf-schema#label> "hazard ratio"@en .
+# 
+# 
+# 
+# http://ns.inria.fr/pgxo/oddsRatio
+<http://ns.inria.fr/pgxo/oddsRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ns.inria.fr/pgxo/oddsRatio> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/pgxo/PharmacogenomicRelationship> .
+<http://ns.inria.fr/pgxo/oddsRatio> <http://www.w3.org/2000/01/rdf-schema#label> "odds ratio"@en .
+# 
+# 
+# 
+# http://ns.inria.fr/pgxo/pValue
+<http://ns.inria.fr/pgxo/pValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ns.inria.fr/pgxo/pValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/pgxo/PharmacogenomicRelationship> .
+<http://ns.inria.fr/pgxo/pValue> <http://www.w3.org/2000/01/rdf-schema#label> "p-value"@en .
 # 
 # 
 # 

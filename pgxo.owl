@@ -15,12 +15,10 @@
         <dc:creator>Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)</dc:creator>
         <dc:creator>Pierre Monnin (Université Côte d&apos;Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)</dc:creator>
         <dc:license>https://creativecommons.org/licenses/by-nc/4.0/</dc:license>
-        <rdfs:comment xml:lang="en">- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/
-- Remove usage of DUL
-- Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx</rdfs:comment>
+        <rdfs:comment xml:lang="en">Add data properties to connect pharmacogenomic relationships to their p-value, odds ratio, and hazard ratio</rdfs:comment>
         <rdfs:comment xml:lang="en">PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
         <rdfs:label xml:lang="en">PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
-        <owl:versionInfo>0.6</owl:versionInfo>
+        <owl:versionInfo>0.6.1</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -477,6 +475,33 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
         <rdfs:label xml:lang="en">level of evidence in ClinPGx</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ns.inria.fr/pgxo/hazardRatio -->
+
+    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/pgxo/hazardRatio">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
+        <rdfs:label xml:lang="en">hazard ratio</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ns.inria.fr/pgxo/oddsRatio -->
+
+    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/pgxo/oddsRatio">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
+        <rdfs:label xml:lang="en">odds ratio</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ns.inria.fr/pgxo/pValue -->
+
+    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/pgxo/pValue">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
+        <rdfs:label xml:lang="en">p-value</rdfs:label>
     </owl:DatatypeProperty>
     
 

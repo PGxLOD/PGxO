@@ -11,12 +11,10 @@
                                                                       "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)" ,
                                                                       "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)" ;
                             <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by-nc/4.0/" ;
-                            rdfs:comment """- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/
-- Remove usage of DUL
-- Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx"""@en ,
+                            rdfs:comment "Add data properties to connect pharmacogenomic relationships to their p-value, odds ratio, and hazard ratio"@en ,
                                          "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."@en ;
                             rdfs:label "PGxO: a lite Pharmacogenomic Ontology"@en ;
-                            owl:versionInfo "0.6" .
+                            owl:versionInfo "0.6.1" .
 
 #################################################################
 #    Annotation properties
@@ -315,6 +313,24 @@
                                  owl:FunctionalProperty ;
                         rdfs:domain :PharmacogenomicRelationship ;
                         rdfs:label "level of evidence in ClinPGx"@en .
+
+
+###  http://ns.inria.fr/pgxo/hazardRatio
+:hazardRatio rdf:type owl:DatatypeProperty ;
+             rdfs:domain :PharmacogenomicRelationship ;
+             rdfs:label "hazard ratio"@en .
+
+
+###  http://ns.inria.fr/pgxo/oddsRatio
+:oddsRatio rdf:type owl:DatatypeProperty ;
+           rdfs:domain :PharmacogenomicRelationship ;
+           rdfs:label "odds ratio"@en .
+
+
+###  http://ns.inria.fr/pgxo/pValue
+:pValue rdf:type owl:DatatypeProperty ;
+        rdfs:domain :PharmacogenomicRelationship ;
+        rdfs:label "p-value"@en .
 
 
 #################################################################
