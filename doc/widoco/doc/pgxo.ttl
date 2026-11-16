@@ -11,11 +11,11 @@
                                                                       "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)" ,
                                                                       "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)" ;
                             <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by-nc/4.0/" ;
-                            rdfs:comment """- Fix Dublin Core prefix: use http://purl.org/dc/terms/ instead of http://purl.org/dc/elements/1.1/
-- Add data properties to connect pharmacogenomic relationships to their p-value, odds ratio, and hazard ratio"""@en ,
+                            rdfs:comment """- Replace the data property clinPGxLevelOfEvidence with the class ClinPGxLevelOfEvidence (sub-class of obo:IAO_0000030, information content entity), whose instances are linked to pharmacogenomic relationships with obo:IAO_0000136 (is about) and hold their value with rdf:value
+- Remove the data properties pValue, oddsRatio, and hazardRatio"""@en ,
                                          "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."@en ;
                             rdfs:label "PGxO: a lite Pharmacogenomic Ontology"@en ;
-                            owl:versionInfo "0.6.2" .
+                            owl:versionInfo "0.6.3" .
 
 #################################################################
 #    Annotation properties
@@ -300,43 +300,25 @@
                                              rdfs:label "has part"@en .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000136
+<http://purl.obolibrary.org/obo/IAO_0000136> rdf:type owl:ObjectProperty ;
+                                             rdfs:label "is about"@en .
+
+
 ###  http://purl.obolibrary.org/obo/RO_0002502
 <http://purl.obolibrary.org/obo/RO_0002502> rdf:type owl:ObjectProperty ;
                                             rdfs:label "depends on"@en .
 
 
 #################################################################
-#    Data properties
-#################################################################
-
-###  http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence
-:clinPGxLevelOfEvidence rdf:type owl:DatatypeProperty ,
-                                 owl:FunctionalProperty ;
-                        rdfs:domain :PharmacogenomicRelationship ;
-                        rdfs:label "level of evidence in ClinPGx"@en .
-
-
-###  http://ns.inria.fr/pgxo/hazardRatio
-:hazardRatio rdf:type owl:DatatypeProperty ;
-             rdfs:domain :PharmacogenomicRelationship ;
-             rdfs:label "hazard ratio"@en .
-
-
-###  http://ns.inria.fr/pgxo/oddsRatio
-:oddsRatio rdf:type owl:DatatypeProperty ;
-           rdfs:domain :PharmacogenomicRelationship ;
-           rdfs:label "odds ratio"@en .
-
-
-###  http://ns.inria.fr/pgxo/pValue
-:pValue rdf:type owl:DatatypeProperty ;
-        rdfs:domain :PharmacogenomicRelationship ;
-        rdfs:label "p-value"@en .
-
-
-#################################################################
 #    Classes
 #################################################################
+
+###  http://ns.inria.fr/pgxo/ClinPGxLevelOfEvidence
+:ClinPGxLevelOfEvidence rdf:type owl:Class ;
+                        rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ;
+                        rdfs:label "ClinPGx level of evidence"@en .
+
 
 ###  http://ns.inria.fr/pgxo/Disease
 :Disease rdf:type owl:Class ;
@@ -399,6 +381,11 @@
 :Variant rdf:type owl:Class ;
          rdfs:subClassOf :GenomicVariation ;
          rdfs:label "Variant"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000030
+<http://purl.obolibrary.org/obo/IAO_0000030> rdf:type owl:Class ;
+                                             rdfs:label "information content entity"@en .
 
 
 ###  http://www.w3.org/ns/prov#Entity

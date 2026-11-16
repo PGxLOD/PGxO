@@ -5,7 +5,7 @@ For each guideline, we describe the value of the field to report.
 
 | Guideline (field to report) | Description |
 |-----------------------------|-------------|
-| A.1 Ontology name | PGxO, v0.6.2 |
+| A.1 Ontology name | PGxO, v0.6.3 |
 | A.2 Ontology owner | Adrien Coulet (https://members.loria.fr/ACoulet/) |
 | A.3 Ontology license | [Creative Commons BY NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
 | A.4 Ontology URL | http://ns.inria.fr/pgxo/pgxo.owl |
@@ -20,15 +20,15 @@ For each guideline, we describe the value of the field to report.
 | D.1 Knowledge acquisition methodology | Described in [1] and [2] |
 | D.2 Source knowledge location | Described in [1] and [2] |
 | D.3 Content selection | Described in [1] and [2] |
-| E.1 Knowledge Representation language | OWL 2 (RDF-XML syntax), Description Logics ALHIF(D)
+| E.1 Knowledge Representation language | OWL 2 (RDF-XML syntax), Description Logics ALHI
 | E.2 Development environment | Protégé (https://protege.stanford.edu) |
-| E.3 Ontology metrics | 12 classes, 47 properties (43 object, 4 data), 189 axioms, 22KB |
-| E.4 Incorporation of other ontologies | No ontologies are imported. OBO Relations Ontology and PROV-O are used. Mappings to NCIt, MeSH, SNOMED-CT, SO-Pharm, PO, PHARE and Genomic CDS |
+| E.3 Ontology metrics | 14 classes, 44 properties (44 object, 0 data), 183 axioms, 21KB |
+| E.4 Incorporation of other ontologies | No ontologies are imported. Terms from the Basic Formal Ontology (BFO), the OBO Relation Ontology (RO), the Information Artifact Ontology (IAO) and PROV-O are used. Mappings to NCIt, MeSH, SNOMED-CT, SO-Pharm, PO, PHARE and Genomic CDS |
 | E.5 Entity naming convention | Base URI: http://ns.inria.fr/pgxo/ + CamelCase (classes) or camelCase (properties, individuals) |
 | E.6 Identifier generation policy | Append English rdfs:label to base URI |
 | E.7 Entity metadata policy | ``rdfs:label`` in English |
 | E.8 Upper ontology | None |
-| E.9 Ontology relationships | We use some relationships from OBO Relations Ontology and PROV-O. We defined 41 new relationships. |
+| E.9 Ontology relationships | We use 'part of' and 'has part' from BFO, 'depends on' from RO, and 'is about' from IAO. We defined 40 new relationships. |
 | E.10 Axiom patterns | None |
 | E.11 Dereferenceable IRIs | IRIs are dereferenceable to http://ns.inria.fr/pgxo/. Preferred prefix is ``pgxo``. |
 | F.1 Sustainability plan | The ontology was originally supported by the _PractiKPharma_ project (http://practikpharma.loria.fr/), and is now maintained by permanent members of the Inria WIMMICS (https://team.inria.fr/wimmics/) and HeKA (https://team.inria.fr/heka/) teams. Ontology is released at http://ns.inria.fr/pgxo/ and on the NCBO BioPortal. |

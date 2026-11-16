@@ -2,7 +2,7 @@
 <rdf:RDF xmlns="http://ns.inria.fr/pgxo/"
      xml:base="http://ns.inria.fr/pgxo/"
      xmlns:dc="http://purl.org/dc/terms/"
-     xmlns:ro="http://purl.obolibrary.org/obo/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -16,11 +16,11 @@
         <dc:creator>Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)</dc:creator>
         <dc:creator>Pierre Monnin (Université Côte d&apos;Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)</dc:creator>
         <dc:license>https://creativecommons.org/licenses/by-nc/4.0/</dc:license>
-        <rdfs:comment xml:lang="en">- Fix Dublin Core prefix: use http://purl.org/dc/terms/ instead of http://purl.org/dc/elements/1.1/
-- Add data properties to connect pharmacogenomic relationships to their p-value, odds ratio, and hazard ratio</rdfs:comment>
+        <rdfs:comment xml:lang="en">- Replace the data property clinPGxLevelOfEvidence with the class ClinPGxLevelOfEvidence (sub-class of obo:IAO_0000030, information content entity), whose instances are linked to pharmacogenomic relationships with obo:IAO_0000136 (is about) and hold their value with rdf:value
+- Remove the data properties pValue, oddsRatio, and hazardRatio</rdfs:comment>
         <rdfs:comment xml:lang="en">PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
         <rdfs:label xml:lang="en">PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
-        <owl:versionInfo>0.6.2</owl:versionInfo>
+        <owl:versionInfo>0.6.3</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -452,6 +452,14 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000136 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000136">
+        <rdfs:label xml:lang="en">is about</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0002502 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002502">
@@ -463,59 +471,20 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence -->
-
-    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
-        <rdfs:label xml:lang="en">level of evidence in ClinPGx</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ns.inria.fr/pgxo/hazardRatio -->
-
-    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/pgxo/hazardRatio">
-        <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
-        <rdfs:label xml:lang="en">hazard ratio</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ns.inria.fr/pgxo/oddsRatio -->
-
-    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/pgxo/oddsRatio">
-        <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
-        <rdfs:label xml:lang="en">odds ratio</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ns.inria.fr/pgxo/pValue -->
-
-    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/pgxo/pValue">
-        <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
-        <rdfs:label xml:lang="en">p-value</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://ns.inria.fr/pgxo/ClinPGxLevelOfEvidence -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/pgxo/ClinPGxLevelOfEvidence">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:label xml:lang="en">ClinPGx level of evidence</rdfs:label>
+    </owl:Class>
     
 
 
@@ -624,6 +593,14 @@
     <!-- http://www.w3.org/ns/prov#Agent -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000030 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000030">
+        <rdfs:label xml:lang="en">information content entity</rdfs:label>
+    </owl:Class>
     
 
 
@@ -831,7 +808,6 @@
         <rdf:type rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
         <owl:sameAs rdf:resource="http://ns.inria.fr/pgxo/example/warfarin_CYP2C9_2"/>
         <causes rdf:resource="http://ns.inria.fr/pgxo/example/cardiovascular_diseases"/>
-        <clinPGxLevelOfEvidence>1A</clinPGxLevelOfEvidence>
         <prov:generatedAtTime>2017-03-24T17:29:00Z</prov:generatedAtTime>
         <prov:wasDerivedFrom rdf:resource="http://ns.inria.fr/pgxo/example/clinpgxid_981238341"/>
         <prov:wasGeneratedBy rdf:resource="http://ns.inria.fr/pgxo/example/sub_extract_clinpgx"/>
@@ -860,6 +836,16 @@
         <prov:generatedAtTime>2017-03-30T11:20:00Z</prov:generatedAtTime>
         <prov:wasDerivedFrom rdf:resource="http://ns.inria.fr/pgxo/example/ClinicalDataWarehouse"/>
         <prov:wasGeneratedBy rdf:resource="http://ns.inria.fr/pgxo/example/extract_cdw_hegp"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ns.inria.fr/pgxo/example/warfarin_CYP2C9_level_of_evidence -->
+
+    <owl:NamedIndividual rdf:about="http://ns.inria.fr/pgxo/example/warfarin_CYP2C9_level_of_evidence">
+        <rdf:type rdf:resource="http://ns.inria.fr/pgxo/ClinPGxLevelOfEvidence"/>
+        <obo:IAO_0000136 rdf:resource="http://ns.inria.fr/pgxo/example/warfarin_CYP2C9"/>
+        <rdf:value>1A</rdf:value>
     </owl:NamedIndividual>
     
 

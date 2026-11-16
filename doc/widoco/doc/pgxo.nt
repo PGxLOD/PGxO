@@ -3,10 +3,10 @@
 <http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/creator> "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)" .
 <http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/creator> "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)" .
 <http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by-nc/4.0/" .
-<http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "- Fix Dublin Core prefix: use http://purl.org/dc/terms/ instead of http://purl.org/dc/elements/1.1/\n- Add data properties to connect pharmacogenomic relationships to their p-value, odds ratio, and hazard ratio"@en .
+<http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "- Replace the data property clinPGxLevelOfEvidence with the class ClinPGxLevelOfEvidence (sub-class of obo:IAO_0000030, information content entity), whose instances are linked to pharmacogenomic relationships with obo:IAO_0000136 (is about) and hold their value with rdf:value\n- Remove the data properties pValue, oddsRatio, and hazardRatio"@en .
 <http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."@en .
 <http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#label> "PGxO: a lite Pharmacogenomic Ontology"@en .
-<http://ns.inria.fr/pgxo/> <http://www.w3.org/2002/07/owl#versionInfo> "0.6.2" .
+<http://ns.inria.fr/pgxo/> <http://www.w3.org/2002/07/owl#versionInfo> "0.6.3" .
 # 
 # 
 # #################################################################
@@ -256,6 +256,10 @@
 <http://purl.obolibrary.org/obo/BFO_0000051> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://purl.obolibrary.org/obo/BFO_0000051> <http://www.w3.org/2000/01/rdf-schema#label> "has part"@en .
 # 
+# http://purl.obolibrary.org/obo/IAO_0000136
+<http://purl.obolibrary.org/obo/IAO_0000136> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.obolibrary.org/obo/IAO_0000136> <http://www.w3.org/2000/01/rdf-schema#label> "is about"@en .
+# 
 # http://purl.obolibrary.org/obo/RO_0002502
 <http://purl.obolibrary.org/obo/RO_0002502> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://purl.obolibrary.org/obo/RO_0002502> <http://www.w3.org/2000/01/rdf-schema#label> "depends on"@en .
@@ -264,45 +268,16 @@
 # 
 # #################################################################
 # #
-# #    Data properties
-# #
-# #################################################################
-# 
-# 
-# http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence
-<http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
-<http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/pgxo/PharmacogenomicRelationship> .
-<http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/2000/01/rdf-schema#label> "level of evidence in ClinPGx"@en .
-# 
-# 
-# 
-# http://ns.inria.fr/pgxo/hazardRatio
-<http://ns.inria.fr/pgxo/hazardRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ns.inria.fr/pgxo/hazardRatio> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/pgxo/PharmacogenomicRelationship> .
-<http://ns.inria.fr/pgxo/hazardRatio> <http://www.w3.org/2000/01/rdf-schema#label> "hazard ratio"@en .
-# 
-# 
-# 
-# http://ns.inria.fr/pgxo/oddsRatio
-<http://ns.inria.fr/pgxo/oddsRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ns.inria.fr/pgxo/oddsRatio> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/pgxo/PharmacogenomicRelationship> .
-<http://ns.inria.fr/pgxo/oddsRatio> <http://www.w3.org/2000/01/rdf-schema#label> "odds ratio"@en .
-# 
-# 
-# 
-# http://ns.inria.fr/pgxo/pValue
-<http://ns.inria.fr/pgxo/pValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://ns.inria.fr/pgxo/pValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/pgxo/PharmacogenomicRelationship> .
-<http://ns.inria.fr/pgxo/pValue> <http://www.w3.org/2000/01/rdf-schema#label> "p-value"@en .
-# 
-# 
-# 
-# #################################################################
-# #
 # #    Classes
 # #
 # #################################################################
+# 
+# 
+# http://ns.inria.fr/pgxo/ClinPGxLevelOfEvidence
+<http://ns.inria.fr/pgxo/ClinPGxLevelOfEvidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/ClinPGxLevelOfEvidence> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/IAO_0000030> .
+<http://ns.inria.fr/pgxo/ClinPGxLevelOfEvidence> <http://www.w3.org/2000/01/rdf-schema#label> "ClinPGx level of evidence"@en .
+# 
 # 
 # 
 # http://ns.inria.fr/pgxo/Disease
@@ -356,6 +331,10 @@
 <http://ns.inria.fr/pgxo/Variant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://ns.inria.fr/pgxo/Variant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/pgxo/GenomicVariation> .
 <http://ns.inria.fr/pgxo/Variant> <http://www.w3.org/2000/01/rdf-schema#label> "Variant"@en .
+# 
+# http://purl.obolibrary.org/obo/IAO_0000030
+<http://purl.obolibrary.org/obo/IAO_0000030> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.obolibrary.org/obo/IAO_0000030> <http://www.w3.org/2000/01/rdf-schema#label> "information content entity"@en .
 # 
 # http://www.w3.org/ns/prov#Entity
 <http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .

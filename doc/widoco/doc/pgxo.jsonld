@@ -13,7 +13,7 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "- Fix Dublin Core prefix: use http://purl.org/dc/terms/ instead of http://purl.org/dc/elements/1.1/\n- Add data properties to connect pharmacogenomic relationships to their p-value, odds ratio, and hazard ratio"
+    "@value" : "- Replace the data property clinPGxLevelOfEvidence with the class ClinPGxLevelOfEvidence (sub-class of obo:IAO_0000030, information content entity), whose instances are linked to pharmacogenomic relationships with obo:IAO_0000136 (is about) and hold their value with rdf:value\n- Remove the data properties pValue, oddsRatio, and hazardRatio"
   }, {
     "@language" : "en",
     "@value" : "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."
@@ -23,7 +23,17 @@
     "@value" : "PGxO: a lite Pharmacogenomic Ontology"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "0.6.2"
+    "@value" : "0.6.3"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/ClinPGxLevelOfEvidence",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "ClinPGx level of evidence"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://purl.obolibrary.org/obo/IAO_0000030"
   } ]
 }, {
   "@id" : "http://ns.inria.fr/pgxo/Disease",
@@ -138,46 +148,6 @@
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "http://ns.inria.fr/pgxo/isCausedBy"
-  } ]
-}, {
-  "@id" : "http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ns.inria.fr/pgxo/PharmacogenomicRelationship"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "level of evidence in ClinPGx"
-  } ]
-}, {
-  "@id" : "http://ns.inria.fr/pgxo/hazardRatio",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ns.inria.fr/pgxo/PharmacogenomicRelationship"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hazard ratio"
-  } ]
-}, {
-  "@id" : "http://ns.inria.fr/pgxo/oddsRatio",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ns.inria.fr/pgxo/PharmacogenomicRelationship"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "odds ratio"
-  } ]
-}, {
-  "@id" : "http://ns.inria.fr/pgxo/pValue",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ns.inria.fr/pgxo/PharmacogenomicRelationship"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "p-value"
   } ]
 }, {
   "@id" : "http://ns.inria.fr/pgxo/decreases",
@@ -626,6 +596,13 @@
     "@value" : "has part"
   } ]
 }, {
+  "@id" : "http://purl.obolibrary.org/obo/IAO_0000136",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is about"
+  } ]
+}, {
   "@id" : "http://purl.obolibrary.org/obo/RO_0002502",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
@@ -638,6 +615,13 @@
 }, {
   "@id" : "http://purl.org/dc/terms/license",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.obolibrary.org/obo/IAO_0000030",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "information content entity"
+  } ]
 }, {
   "@id" : "http://www.w3.org/ns/prov#Entity",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
